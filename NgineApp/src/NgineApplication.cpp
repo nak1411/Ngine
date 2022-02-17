@@ -1,21 +1,21 @@
 #include <Ngine.h>
 
-class Testbox : public Ngine::Application
+class NgineApp : public Ngine::Application
+
 {
 public:
-	Testbox()
+	NgineApp()
 	{
 
 	}
 
-	~Testbox()
+	~NgineApp()
 	{
 
 	}
-
 };
 
 Ngine::Application* Ngine::CreateApplication()
 {
-	return new Testbox();
+	return new NgineApp();
 }

@@ -1,14 +1,12 @@
 #pragma once
-
-#ifdef NG_PLATFORM_WINDOWS
+#ifdef NE_PLATFORM_WINDOWS
 
 extern Ngine::Application* Ngine::CreateApplication();
 
-int main(int argc, char** argv)
+int main(int arc, char** argv)
 {
 	auto app = Ngine::CreateApplication();
 	app->Run();
 	delete app;
 }
-
 #endif

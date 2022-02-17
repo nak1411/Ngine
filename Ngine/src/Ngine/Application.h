@@ -1,5 +1,4 @@
 #pragma once
-
 #include "Core.h"
 
 namespace Ngine {
@@ -13,7 +12,6 @@ namespace Ngine {
 		void Run();
 	};
 
-	// TODO in CLient
 	Application* CreateApplication();
 }
 

@@ -1,9 +1,5 @@
 #pragma once
 
-// For use by Ngine apps
+#include"Ngine/Application.h"
 
-#include "Ngine/Application.h"
-
-// Entry Point-----------
-#include "Ngine/EntryPoint.h"
-// ----------------------
+#include"Ngine/EntryPoint.h"

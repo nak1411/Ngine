@@ -1,11 +1,10 @@
 #pragma once
 
-#ifdef NG_PLATFORM_WINDOWS
-	#ifdef NG_BUILD_DLL
+#ifdef NE_PLATFORM_WINDOWS
+	#ifdef NE_BUILD_DLL
 		#define NGINE_API __declspec(dllexport)
 	#else
-		#define NGINE_API __declspec(dllexport)
+		#define NGINE_API __declspec(dllimport)
 	#endif
-#else
-	#error Ngine only supports Windows
 #endif
+
