@@ -1,0 +1,3 @@
+[submodule "Ngine/vendor/spdlog"]
+	path = Ngine/vendor/spdlog
+	url = https://github.com/gabime/spdlog
