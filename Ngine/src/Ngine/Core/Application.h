@@ -1,9 +1,7 @@
 #pragma once
-#include "nepch.h"
 #include "Core.h"
-#include "States/State.h"
-#include "States/GameState.h"
-
+#include "Ngine/States/State.h"
+#include "Ngine/States/MainMenuState.h"
 
 namespace Ngine {
 
@@ -24,6 +22,7 @@ namespace Ngine {
 	private:
 		/*FUNCTIONS*/
 		void InitWindow();
+		void InitKeys();
 		void InitStates();
 		void EndApp();
 		
@@ -37,8 +36,11 @@ namespace Ngine {
 		// State is pointer due to being abstract therefore cannot be instantiated
 		std::stack<State*> states;
 
+		std::map<std::string, int> supportedKeys;
+
 	};
 
 	Application* CreateApplication();
 }
+
 

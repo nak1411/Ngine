@@ -1,6 +1,8 @@
 #pragma once
 
 #include <iostream>
+#include <string>
+#include <map>
 #include <memory>
 #include <utility>
 #include <algorithm>
@@ -11,7 +13,6 @@
 #include <array>
 #include <vector>
 #include <stack>
-#include <map>
 #include <unordered_map>
 #include <unordered_set>
 
@@ -21,7 +22,7 @@
 #include "sfml/Window.hpp"
 #include "sfml/System.hpp"
 
-#include "Ngine/Log.h"
+#include "Ngine/Core/Log.h"
 
 #ifdef NE_PLATFORM_WINDOWS
 	#include <Windows.h>

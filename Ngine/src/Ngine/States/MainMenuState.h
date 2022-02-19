@@ -1,15 +1,16 @@
 #pragma once
 #include "nepch.h"
-#include "State.h"
+#include "GameState.h"
 
 namespace Ngine {
-	class GameState : public State
-	{
+    class MainMenuState :
+        public State
+    {
 
 	public:
 		/*CONSTRUCTOR / DESTRUCTOR*/
-		GameState(sf::RenderWindow* window, std::map<std::string, int>* supportedKeys);
-		virtual ~GameState();
+		MainMenuState(sf::RenderWindow* window, std::map<std::string, int>* supportedKeys);
+		virtual ~MainMenuState();
 
 		/*FUNCTIONS*/
 		void EndState();
@@ -18,12 +19,12 @@ namespace Ngine {
 		void Render(sf::RenderTarget* target = nullptr);
 
 	private:
-
-		Entity player;
+		/*VARS*/
+		sf::RectangleShape background;
 
 		/*FUNCTIONS*/
 		void InitKeybinds();
-	};
-}
 
+    };
+}
 

@@ -1,6 +1,7 @@
 #pragma once
 #ifdef NE_PLATFORM_WINDOWS
 
+#include "Ngine/Core/Application.h"
 
 extern Ngine::Application* Ngine::CreateApplication();
 

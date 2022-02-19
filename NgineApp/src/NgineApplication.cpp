@@ -1,6 +1,6 @@
 #include <Ngine.h>
 
-#include"Ngine/EntryPoint.h"
+#include"Ngine/Core/EntryPoint.h"
 
 class NgineApp : public Ngine::Application
 

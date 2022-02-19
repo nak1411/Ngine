@@ -1,17 +1,16 @@
-#include"nepch.h"
-#include "Application.h"
+#include "nepch.h"
+#include "Ngine/Core/Application.h"
+#include "Ngine/Core/Log.h"
 
 namespace Ngine {
 
-    /*
-    * CONSTRUCTOR/DESTRUCTOR
-    */
+#pragma region CONSTRUCTOR/DESTRUCTOR
+
 	Application::Application()
 	{
         this->InitWindow();
-        this->InitStates();
-
-        NE_CORE_INFO("WINDOW INITIALIZED");
+        this->InitKeys();
+        this->InitStates();        
 	}
 
 	Application::~Application()
@@ -24,9 +23,10 @@ namespace Ngine {
         }  
 	}
 
-    /*
-    * INITIALIZERS
-    */
+#pragma endregion
+
+#pragma region INITIALIZERS
+
     void Application::InitWindow()
     {
         /*Initialize Window with window.ini settings*/
@@ -48,16 +48,42 @@ namespace Ngine {
         this->window = new sf::RenderWindow(window_bounds, title);
         this->window->setFramerateLimit(framerate_limit);
         this->window->setVerticalSyncEnabled(vertical_sync_enabled);
+
+        NE_CORE_WARN("WINDOW INITIALIZED");
     }
 
     void Application::InitStates()
     {
-        this->states.push(new GameState(this->window));
+        // Push new state to the stack with required inputs
+        this->states.push(new GameState(this->window, &this->supportedKeys));
+
+        NE_CORE_WARN("STATES INITIALIZED");
     }
 
-    /*
-    * FUNCTIONS
-    */
+    void Application::InitKeys()
+    {
+        /*Pull supported keys from config file*/
+        std::ifstream ifs("conf/supported_keys.ini");
+
+        if (ifs.is_open())
+        {
+            std::string key = "";
+            int keyValue = 0;
+            while (ifs >> key >> keyValue)
+            {
+                this->supportedKeys[key] = keyValue;
+            }   
+        }
+        ifs.close();
+        /**************************************/
+
+        NE_CORE_WARN("KEYS INITIALIZED");
+    }
+
+#pragma endregion
+
+#pragma region FUNCTIONS
+
 	void Application::Run()
 	{
         while (this->window->isOpen())
@@ -129,4 +155,7 @@ namespace Ngine {
     {
         NE_CORE_WARN("Shutting Down...");
     }
+
+#pragma endregion
+
 }

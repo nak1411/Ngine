@@ -4,36 +4,63 @@
     <Filter Include="Ngine">
       <UniqueIdentifier>{B6BFBC0D-22D4-E4BE-EB55-881E5729E1EF}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Ngine\Core">
+      <UniqueIdentifier>{CE259038-BADD-D185-23E5-AAE10FBC6C76}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ngine\Entities">
+      <UniqueIdentifier>{2AE5673D-16B3-5B43-FF46-CC69EBB337A8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ngine\States">
+      <UniqueIdentifier>{B9D0D4C2-A533-6467-4EB9-9C1D3AFB2FEA}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Ngine.h" />
-    <ClInclude Include="src\Ngine\Application.h">
-      <Filter>Ngine</Filter>
+    <ClInclude Include="src\Ngine\Core\Application.h">
+      <Filter>Ngine\Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\Ngine\Core.h">
-      <Filter>Ngine</Filter>
+    <ClInclude Include="src\Ngine\Core\Core.h">
+      <Filter>Ngine\Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\Ngine\EntryPoint.h">
-      <Filter>Ngine</Filter>
+    <ClInclude Include="src\Ngine\Core\EntryPoint.h">
+      <Filter>Ngine\Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\Ngine\Log.h">
-      <Filter>Ngine</Filter>
+    <ClInclude Include="src\Ngine\Core\Log.h">
+      <Filter>Ngine\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Ngine\Entities\Entity.h">
+      <Filter>Ngine\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Ngine\States\GameState.h">
+      <Filter>Ngine\States</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Ngine\States\MainMenuState.h">
+      <Filter>Ngine\States</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Ngine\States\State.h">
+      <Filter>Ngine\States</Filter>
     </ClInclude>
     <ClInclude Include="src\nepch.h" />
-    <ClInclude Include="src\Ngine\States\State.h" />
-    <ClInclude Include="src\Ngine\States\GameState.h" />
-    <ClInclude Include="src\Ngine\Entities\Entity.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Ngine\Application.cpp">
-      <Filter>Ngine</Filter>
+    <ClCompile Include="src\Ngine\Core\Application.cpp">
+      <Filter>Ngine\Core</Filter>
     </ClCompile>
-    <ClCompile Include="src\Ngine\Log.cpp">
-      <Filter>Ngine</Filter>
+    <ClCompile Include="src\Ngine\Core\Log.cpp">
+      <Filter>Ngine\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ngine\Entities\Entity.cpp">
+      <Filter>Ngine\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ngine\States\GameState.cpp">
+      <Filter>Ngine\States</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ngine\States\MainMenuState.cpp">
+      <Filter>Ngine\States</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ngine\States\State.cpp">
+      <Filter>Ngine\States</Filter>
     </ClCompile>
     <ClCompile Include="src\nepch.cpp" />
-    <ClCompile Include="src\Ngine\States\State.cpp" />
-    <ClCompile Include="src\Ngine\States\GameState.cpp" />
-    <ClCompile Include="src\Ngine\Entities\Entity.cpp" />
   </ItemGroup>
 </Project>

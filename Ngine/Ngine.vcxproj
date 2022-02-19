@@ -144,25 +144,27 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Ngine.h" />
+    <ClInclude Include="src\Ngine\Core\Application.h" />
+    <ClInclude Include="src\Ngine\Core\Core.h" />
+    <ClInclude Include="src\Ngine\Core\EntryPoint.h" />
+    <ClInclude Include="src\Ngine\Core\Log.h" />
     <ClInclude Include="src\Ngine\Entities\Entity.h" />
     <ClInclude Include="src\Ngine\States\GameState.h" />
-    <ClInclude Include="src\Ngine.h" />
-    <ClInclude Include="src\Ngine\Application.h" />
-    <ClInclude Include="src\Ngine\Core.h" />
-    <ClInclude Include="src\Ngine\EntryPoint.h" />
-    <ClInclude Include="src\Ngine\Log.h" />
-    <ClInclude Include="src\nepch.h" />
+    <ClInclude Include="src\Ngine\States\MainMenuState.h" />
     <ClInclude Include="src\Ngine\States\State.h" />
+    <ClInclude Include="src\nepch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Ngine\Core\Application.cpp" />
+    <ClCompile Include="src\Ngine\Core\Log.cpp" />
     <ClCompile Include="src\Ngine\Entities\Entity.cpp" />
     <ClCompile Include="src\Ngine\States\GameState.cpp" />
-    <ClCompile Include="src\Ngine\Application.cpp" />
-    <ClCompile Include="src\Ngine\Log.cpp" />
+    <ClCompile Include="src\Ngine\States\MainMenuState.cpp" />
+    <ClCompile Include="src\Ngine\States\State.cpp" />
     <ClCompile Include="src\nepch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="src\Ngine\States\State.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

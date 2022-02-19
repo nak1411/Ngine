@@ -1,6 +1,5 @@
 #pragma once
 
-#include"Ngine/Application.h"
-#include"Ngine/Log.h"
-
-#include"Ngine/EntryPoint.h"
+#include"Ngine/Core/Core.h"
+#include"Ngine/Core/Application.h"
+#include"Ngine/Core/Log.h"

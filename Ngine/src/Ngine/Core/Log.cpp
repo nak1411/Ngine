@@ -1,4 +1,5 @@
 #include "nepch.h"
+#include "Ngine/Core/Log.h"
 
 #include "spdlog/sinks/stdout_color_sinks.h"
 
