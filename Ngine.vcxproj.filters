@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Ngine">
+      <UniqueIdentifier>{B6BFBC0D-22D4-E4BE-EB55-881E5729E1EF}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Ngine\src\Ngine.h" />
+    <ClInclude Include="Ngine\src\Ngine\Application.h">
+      <Filter>Ngine</Filter>
+    </ClInclude>
+    <ClInclude Include="Ngine\src\Ngine\Core.h">
+      <Filter>Ngine</Filter>
+    </ClInclude>
+    <ClInclude Include="Ngine\src\Ngine\EntryPoint.h">
+      <Filter>Ngine</Filter>
+    </ClInclude>
+    <ClInclude Include="Ngine\src\Ngine\Log.h">
+      <Filter>Ngine</Filter>
+    </ClInclude>
+    <ClInclude Include="Ngine\src\nepch.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Ngine\src\Ngine\Application.cpp">
+      <Filter>Ngine</Filter>
+    </ClCompile>
+    <ClCompile Include="Ngine\src\Ngine\Log.cpp">
+      <Filter>Ngine</Filter>
+    </ClCompile>
+    <ClCompile Include="Ngine\src\nepch.cpp" />
+  </ItemGroup>
+</Project>

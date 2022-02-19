@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Ngine">
+      <UniqueIdentifier>{B6BFBC0D-22D4-E4BE-EB55-881E5729E1EF}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\Ngine.h" />
+    <ClInclude Include="src\Ngine\Application.h">
+      <Filter>Ngine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Ngine\Core.h">
+      <Filter>Ngine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Ngine\EntryPoint.h">
+      <Filter>Ngine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Ngine\Log.h">
+      <Filter>Ngine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\nepch.h" />
+    <ClInclude Include="src\Ngine\States\State.h" />
+    <ClInclude Include="src\Ngine\States\GameState.h" />
+    <ClInclude Include="src\Ngine\Entities\Entity.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Ngine\Application.cpp">
+      <Filter>Ngine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ngine\Log.cpp">
+      <Filter>Ngine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\nepch.cpp" />
+    <ClCompile Include="src\Ngine\States\State.cpp" />
+    <ClCompile Include="src\Ngine\States\GameState.cpp" />
+    <ClCompile Include="src\Ngine\Entities\Entity.cpp" />
+  </ItemGroup>
+</Project>

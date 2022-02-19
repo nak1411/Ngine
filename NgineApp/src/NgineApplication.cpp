@@ -1,5 +1,7 @@
 #include <Ngine.h>
 
+#include"Ngine/EntryPoint.h"
+
 class NgineApp : public Ngine::Application
 
 {
