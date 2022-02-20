@@ -45,12 +45,9 @@ namespace Ngine {
 		return this->quit;
 	}
 
-	void State::CheckForQuit()
+	void State::EndState()
 	{
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key(this->keybinds.at("CLOSE"))))
-		{
-			this->quit = true;
-		}
+		this->quit = true;
 	}
 
 	void State::UpdateMousePositions()

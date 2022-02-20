@@ -13,6 +13,7 @@ namespace Ngine {
 		virtual ~Entity();
 
 		/*FUNCTIONS*/
+		void CreateSprite(sf::Texture* texture);
 
 		virtual void Move(const float& dt, const float dirX, const float dirY);
 		virtual void Update(const float& dt);
@@ -21,13 +22,17 @@ namespace Ngine {
 	protected:
 
 		/*VARS*/
-		sf::RectangleShape shape;
-		float movementSpeed;
+		sf::Texture* texture;
+		sf::Sprite* sprite;
 
+		float movementSpeed;
 
 	private:
 
 		/*VARS*/
+
+		/*FUNCTIONS*/
+		void InitVariables();
 
 	};
 }

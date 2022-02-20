@@ -142,7 +142,6 @@ namespace Ngine {
 
 	void MainMenuState::UpdateInput(const float& dt)
 	{
-		this->CheckForQuit();
 
 	}
 
@@ -165,12 +164,6 @@ namespace Ngine {
 		{
 			this->EndState();
 		}
-	}
-
-	void MainMenuState::EndState()
-	{
-		NE_CORE_INFO("MAINMENU STATE ENDED");
-		this->quit = true;
 	}
 
 #pragma endregion

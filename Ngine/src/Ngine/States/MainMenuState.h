@@ -14,7 +14,6 @@ namespace Ngine {
 		virtual ~MainMenuState();
 
 		/*FUNCTIONS*/
-		void EndState();
 		void UpdateInput(const float& dt);
 		void UpdateButtons();
 		void Update(const float& dt);

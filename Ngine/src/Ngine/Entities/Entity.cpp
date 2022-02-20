@@ -7,23 +7,41 @@ namespace Ngine {
 
 	Entity::Entity()
 	{
-		this->shape.setSize(sf::Vector2f(20.f, 20.f));
-		this->shape.setFillColor(sf::Color::Blue);
+		this->InitVariables();
 		this->movementSpeed = 100.f;
 	}
 
 	Entity::~Entity()
 	{
+		delete this->sprite;
+	}
 
+#pragma endregion
+
+#pragma region INITIALIZERS
+
+	void Entity::InitVariables()
+	{
+		this->sprite = nullptr;
+		this->texture = nullptr;
 	}
 
 #pragma endregion
 
 #pragma region FUNCTIONS
 
+	void Entity::CreateSprite(sf::Texture* texture)
+	{
+		this->texture = texture;
+		this->sprite->setTexture(*this->texture);
+	}
+
 	void Entity::Move(const float& dt, const float dirX, const float dirY)
 	{
-		this->shape.move(dirX * this->movementSpeed * dt, dirY * this->movementSpeed * dt);
+		if (this->sprite)
+		{
+			this->sprite->move(dirX * this->movementSpeed * dt, dirY * this->movementSpeed * dt);
+		}
 	}
 
 	void Entity::Update(const float& dt)
@@ -33,7 +51,10 @@ namespace Ngine {
 
 	void Entity::Render(sf::RenderTarget* target)
 	{
-		target->draw(this->shape);
+		if (this->sprite)
+		{
+			target->draw(*this->sprite);
+		}
 	}
 
 #pragma endregion

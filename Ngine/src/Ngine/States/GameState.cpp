@@ -60,8 +60,6 @@ namespace Ngine {
 
 	void GameState::UpdateInput(const float& dt)
 	{
-		this->CheckForQuit();
-
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key(this->keybinds.at("MOVE_UP"))))
 		{															   
 			this->player.Move(dt, 0.f, -1.f);						   
@@ -78,11 +76,10 @@ namespace Ngine {
 		{
 			this->player.Move(dt, 1.f, 0.f);
 		}
-	}
-
-	void GameState::EndState()
-	{
-		NE_CORE_INFO("GAME STATE ENDED");
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key(this->keybinds.at("CLOSE"))))
+		{
+			this->EndState();
+		}
 	}
 
 #pragma endregion

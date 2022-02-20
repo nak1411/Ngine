@@ -38,10 +38,9 @@ namespace Ngine {
 		const bool& isQuitting() const;
 
 		/*FUNCTIONS*/
-		virtual void CheckForQuit();
+		void EndState();
 
 		// Pure virtual - derived classes MUST implement these
-		virtual void EndState() = 0;
 		virtual void UpdateMousePositions();
 		virtual void UpdateInput(const float& dt) = 0;
 		// Get reference to dt from application
