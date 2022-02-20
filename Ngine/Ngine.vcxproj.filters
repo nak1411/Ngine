@@ -19,6 +19,9 @@
     <ClInclude Include="src\Ngine\Core\Application.h">
       <Filter>Ngine\Core</Filter>
     </ClInclude>
+    <ClInclude Include="src\Ngine\Core\Button.h">
+      <Filter>Ngine\Core</Filter>
+    </ClInclude>
     <ClInclude Include="src\Ngine\Core\Core.h">
       <Filter>Ngine\Core</Filter>
     </ClInclude>
@@ -44,6 +47,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Ngine\Core\Application.cpp">
+      <Filter>Ngine\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ngine\Core\Button.cpp">
       <Filter>Ngine\Core</Filter>
     </ClCompile>
     <ClCompile Include="src\Ngine\Core\Log.cpp">

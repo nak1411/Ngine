@@ -5,8 +5,8 @@ namespace Ngine {
 
 #pragma region CONSTRUCTOR/DESTRUCTOR
 
-	Ngine::GameState::GameState(sf::RenderWindow* window, std::map<std::string, int>* supportedKeys)
-		: State(window, supportedKeys) // ("super" in Java)
+	Ngine::GameState::GameState(sf::RenderWindow* window, std::map<std::string, int>* supportedKeys, std::stack<State*>* states)
+		: State(window, supportedKeys, states) // ("super" in Java)
 	{
 		this->InitKeybinds();
 	}
@@ -44,6 +44,7 @@ namespace Ngine {
 
 	void GameState::Update(const float& dt)
 	{
+		this->UpdateMousePositions();
 		this->UpdateInput(dt);
 		this->player.Update(dt);
 	}
@@ -81,7 +82,7 @@ namespace Ngine {
 
 	void GameState::EndState()
 	{
-		NE_CORE_INFO("STATE ENDED");
+		NE_CORE_INFO("GAME STATE ENDED");
 	}
 
 #pragma endregion

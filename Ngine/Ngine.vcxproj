@@ -83,7 +83,7 @@
       <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\sfml\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
-      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
@@ -106,7 +106,7 @@
       <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\sfml\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
-      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
@@ -146,6 +146,7 @@
   <ItemGroup>
     <ClInclude Include="src\Ngine.h" />
     <ClInclude Include="src\Ngine\Core\Application.h" />
+    <ClInclude Include="src\Ngine\Core\Button.h" />
     <ClInclude Include="src\Ngine\Core\Core.h" />
     <ClInclude Include="src\Ngine\Core\EntryPoint.h" />
     <ClInclude Include="src\Ngine\Core\Log.h" />
@@ -157,6 +158,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Ngine\Core\Application.cpp" />
+    <ClCompile Include="src\Ngine\Core\Button.cpp" />
     <ClCompile Include="src\Ngine\Core\Log.cpp" />
     <ClCompile Include="src\Ngine\Entities\Entity.cpp" />
     <ClCompile Include="src\Ngine\States\GameState.cpp" />

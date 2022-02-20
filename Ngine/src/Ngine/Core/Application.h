@@ -21,6 +21,7 @@ namespace Ngine {
 
 	private:
 		/*FUNCTIONS*/
+		void InitVariables();
 		void InitWindow();
 		void InitKeys();
 		void InitStates();
@@ -29,8 +30,11 @@ namespace Ngine {
 		/*VARS*/
 		sf::RenderWindow* window;
 		sf::Event sfEvent;
+		std::vector<sf::VideoMode> videoModes;
+		sf::ContextSettings windowSettings;
 		sf::Clock dtClock;
 
+		bool fullscreen;
 		float dt;
 
 		// State is pointer due to being abstract therefore cannot be instantiated

@@ -8,6 +8,7 @@ namespace Ngine {
 
 	Application::Application()
 	{
+        this->InitVariables();
         this->InitWindow();
         this->InitKeys();
         this->InitStates();        
@@ -27,25 +28,51 @@ namespace Ngine {
 
 #pragma region INITIALIZERS
 
+    void Application::InitVariables()
+    {
+        this->window = nullptr;
+        this->fullscreen = false;
+        this->dt = 0.f;
+    }
+
     void Application::InitWindow()
     {
         /*Initialize Window with window.ini settings*/
         std::ifstream ifs("conf/window.ini");
+        this->videoModes = sf::VideoMode::getFullscreenModes();
+
         std::string title = "None";
-        sf::VideoMode window_bounds(800, 600);
+        sf::VideoMode window_bounds = sf::VideoMode::getDesktopMode();
+
+        bool fullscreen = false;
         unsigned framerate_limit = 120;
         bool vertical_sync_enabled = false;
+        unsigned antialiasing_level = 0;
+
         if (ifs.is_open())
         {
             std::getline(ifs, title);
             ifs >> window_bounds.width >> window_bounds.height;
+            ifs >> fullscreen;
             ifs >> framerate_limit;
             ifs >> vertical_sync_enabled;
+            ifs >> antialiasing_level;
         }
         ifs.close();
 
         /*Implement window settings*/
-        this->window = new sf::RenderWindow(window_bounds, title);
+        this->fullscreen = fullscreen;
+        this->windowSettings.antialiasingLevel = antialiasing_level;
+
+        if (this->fullscreen)
+        {
+            this->window = new sf::RenderWindow(window_bounds, title, sf::Style::Fullscreen, windowSettings);
+        }
+        else 
+        {
+            this->window = new sf::RenderWindow(window_bounds, "", sf::Style::Titlebar | sf::Style::Close, windowSettings);
+        }
+
         this->window->setFramerateLimit(framerate_limit);
         this->window->setVerticalSyncEnabled(vertical_sync_enabled);
 
@@ -55,7 +82,7 @@ namespace Ngine {
     void Application::InitStates()
     {
         // Push new state to the stack with required inputs
-        this->states.push(new GameState(this->window, &this->supportedKeys));
+        this->states.push(new MainMenuState(this->window, &this->supportedKeys, &this->states));
 
         NE_CORE_WARN("STATES INITIALIZED");
     }
