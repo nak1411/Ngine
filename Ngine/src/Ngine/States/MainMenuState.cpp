@@ -9,6 +9,8 @@ namespace Ngine {
 	Ngine::MainMenuState::MainMenuState(sf::RenderWindow* window, std::map<std::string, int>* supportedKeys, std::stack<State*>* states)
 		: State(window, supportedKeys, states) // ("super" in Java)
 	{
+		this->InitVariables();
+		this->InitBackground();
 		this->InitFonts();
 		this->InitKeybinds();
 		this->InitButtons();
@@ -19,15 +21,17 @@ namespace Ngine {
 			sf::Color(150, 150, 150, 255),
 			sf::Color(20, 20, 20, 200));
 
-		this->buttons["EXIT_STATE"] = new Button(100, 300, 150, 50,
-			&this->font, "Quit",
+		this->buttons["SETTINGS"] = new Button(100, 160, 150, 50,
+			&this->font, "Settings",
 			sf::Color(70, 70, 70, 200),
 			sf::Color(150, 150, 150, 255),
 			sf::Color(20, 20, 20, 200));
 
-
-		this->background.setSize(sf::Vector2f(window->getSize().x, window->getSize().y));
-		this->background.setFillColor(sf::Color::Magenta);
+		this->buttons["EXIT_STATE"] = new Button(100, 220, 150, 50,
+			&this->font, "Quit",
+			sf::Color(70, 70, 70, 200),
+			sf::Color(150, 150, 150, 255),
+			sf::Color(20, 20, 20, 200));
 	}
 
 	Ngine::MainMenuState::~MainMenuState()
@@ -43,6 +47,23 @@ namespace Ngine {
 #pragma endregion
 
 #pragma region INITIALIZERS
+
+	void MainMenuState::InitVariables()
+	{
+
+	}
+
+	void MainMenuState::InitBackground()
+	{
+		this->background.setSize(sf::Vector2f(this->window->getSize().x, this->window->getSize().y));
+
+		if (!this->backgroundTexture.loadFromFile("res/images/bg1.png"))
+		{
+			NE_CORE_ERROR("MAINMENUSTATE::COULD NOT LOAD BACKGROUND IMAGE");
+			return;
+		}
+		this->background.setTexture(&this->backgroundTexture);
+	}
 
 	void MainMenuState::InitFonts()
 	{
@@ -85,9 +106,6 @@ namespace Ngine {
 		this->UpdateMousePositions();
 		this->UpdateInput(dt);
 		this->UpdateButtons();
-
-		
-		NE_CORE_ERROR(std::to_string(this->mousePosWindow.x) + " " + std::to_string(this->mousePosWindow.y));
 	}
 
 	void MainMenuState::RenderButtons(sf::RenderTarget* target)
@@ -109,6 +127,17 @@ namespace Ngine {
 		target->draw(this->background);
 
 		this->RenderButtons(target);
+
+		sf::Text mouseText;
+		mouseText.setPosition(this->mousePosView.x + 20, this->mousePosView.y);
+		mouseText.setFont(this->font);
+		mouseText.setColor(sf::Color::White);
+		mouseText.setCharacterSize(12);
+		
+		std::stringstream ss;
+		ss << this->mousePosView.x << "\n\n" << this->mousePosView.y;
+		mouseText.setString(ss.str());
+		target->draw(mouseText);
 	}
 
 	void MainMenuState::UpdateInput(const float& dt)

@@ -23,6 +23,7 @@ namespace Ngine {
 
 	private:
 		/*VARS*/
+		sf::Texture backgroundTexture;
 		sf::RectangleShape background;
 		sf::Font font;
 
@@ -30,6 +31,8 @@ namespace Ngine {
 
 
 		/*FUNCTIONS*/
+		void InitVariables();
+		void InitBackground();
 		void InitFonts();
 		void InitKeybinds();
 		void InitButtons();
