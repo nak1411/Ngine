@@ -19,7 +19,7 @@
     <ClInclude Include="src\Ngine\Core\Application.h">
       <Filter>Ngine\Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\Ngine\Core\Button.h">
+    <ClInclude Include="src\Ngine\Gui\Gui.h">
       <Filter>Ngine\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Ngine\Core\Core.h">
@@ -44,12 +44,15 @@
       <Filter>Ngine\States</Filter>
     </ClInclude>
     <ClInclude Include="src\nepch.h" />
+    <ClInclude Include="src\Ngine\States\SettingsState.h" />
+    <ClInclude Include="src\Ngine\Map\Map.h" />
+    <ClInclude Include="src\Ngine\Map\Block.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Ngine\Core\Application.cpp">
       <Filter>Ngine\Core</Filter>
     </ClCompile>
-    <ClCompile Include="src\Ngine\Core\Button.cpp">
+    <ClCompile Include="src\Ngine\Gui\Gui.cpp">
       <Filter>Ngine\Core</Filter>
     </ClCompile>
     <ClCompile Include="src\Ngine\Core\Log.cpp">
@@ -68,5 +71,8 @@
       <Filter>Ngine\States</Filter>
     </ClCompile>
     <ClCompile Include="src\nepch.cpp" />
+    <ClCompile Include="src\Ngine\States\SettingsState.cpp" />
+    <ClCompile Include="src\Ngine\Map\Map.cpp" />
+    <ClCompile Include="src\Ngine\Map\Block.cpp" />
   </ItemGroup>
 </Project>

@@ -35,7 +35,8 @@ namespace Ngine {
 		State(sf::RenderWindow* window, std::map<std::string, int>* supportedKeys, std::stack<State*>* states);
 		virtual ~State();
 
-		const bool& isQuitting() const;
+		/*GETTER*/
+		const bool& IsQuitting() const;
 
 		/*FUNCTIONS*/
 		void EndState();

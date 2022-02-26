@@ -9,6 +9,7 @@ namespace Ngine {
 		: State(window, supportedKeys, states) // ("super" in Java)
 	{
 		this->InitKeybinds();
+		this->map.CreateBlock();
 	}
 
 	Ngine::GameState::~GameState()
@@ -46,7 +47,7 @@ namespace Ngine {
 	{
 		this->UpdateMousePositions();
 		this->UpdateInput(dt);
-		this->player.Update(dt);
+		this->map.Update(dt);
 	}
 
 	void GameState::Render(sf::RenderTarget* target)
@@ -55,27 +56,27 @@ namespace Ngine {
 		{
 			target = this->window;
 		}
-			this->player.Render(target);
+			this->map.Render(target);
 	}
 
 	void GameState::UpdateInput(const float& dt)
 	{
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key(this->keybinds.at("MOVE_UP"))))
+		/*if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key(this->keybinds.at("MOVE_UP"))))
 		{															   
-			this->player.Move(dt, 0.f, -1.f);						   
+			this->block->Move(dt, 0.f, -1.f);
 		}															   
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key(this->keybinds.at("MOVE_LEFT"))))
 		{															   
-			this->player.Move(dt, -1.f, 0.f);						  
+			this->block->Move(dt, -1.f, 0.f);
 		}															   
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key(this->keybinds.at("MOVE_DOWN"))))
 		{															   
-			this->player.Move(dt, 0.f, 1.f);						   
+			this->block->Move(dt, 0.f, 1.f);
 		}															   
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key(this->keybinds.at("MOVE_RIGHT"))))
 		{
-			this->player.Move(dt, 1.f, 0.f);
-		}
+			this->block->Move(dt, 1.f, 0.f);
+		}*/
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key(this->keybinds.at("CLOSE"))))
 		{
 			this->EndState();

@@ -1,5 +1,6 @@
 #include "nepch.h"
 #include "State.h"
+#include "Ngine/Core/Application.h"
 
 namespace Ngine {
 
@@ -17,7 +18,6 @@ namespace Ngine {
 
 	State::~State()
 	{
-
 	}
 
 #pragma endregion
@@ -37,10 +37,10 @@ namespace Ngine {
 
 #pragma endregion
 
-
 #pragma region FUNCTIONS
 
-	const bool& State::isQuitting() const
+
+	const bool& State::IsQuitting() const
 	{
 		return this->quit;
 	}

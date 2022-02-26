@@ -144,9 +144,12 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Ngine\Map\Block.h" />
+    <ClInclude Include="src\Ngine\Map\Map.h" />
+    <ClInclude Include="src\Ngine\States\SettingsState.h" />
     <ClInclude Include="src\Ngine.h" />
     <ClInclude Include="src\Ngine\Core\Application.h" />
-    <ClInclude Include="src\Ngine\Core\Button.h" />
+    <ClInclude Include="src\Ngine\Gui\Gui.h" />
     <ClInclude Include="src\Ngine\Core\Core.h" />
     <ClInclude Include="src\Ngine\Core\EntryPoint.h" />
     <ClInclude Include="src\Ngine\Core\Log.h" />
@@ -157,8 +160,11 @@
     <ClInclude Include="src\nepch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Ngine\Map\Block.cpp" />
+    <ClCompile Include="src\Ngine\Map\Map.cpp" />
+    <ClCompile Include="src\Ngine\States\SettingsState.cpp" />
     <ClCompile Include="src\Ngine\Core\Application.cpp" />
-    <ClCompile Include="src\Ngine\Core\Button.cpp" />
+    <ClCompile Include="src\Ngine\Gui\Gui.cpp" />
     <ClCompile Include="src\Ngine\Core\Log.cpp" />
     <ClCompile Include="src\Ngine\Entities\Entity.cpp" />
     <ClCompile Include="src\Ngine\States\GameState.cpp" />

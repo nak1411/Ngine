@@ -33,6 +33,7 @@ namespace Ngine {
         this->window = nullptr;
         this->fullscreen = false;
         this->dt = 0.f;
+        this->isClicked = false;
     }
 
     void Application::InitWindow()
@@ -70,7 +71,7 @@ namespace Ngine {
         }
         else 
         {
-            this->window = new sf::RenderWindow(window_bounds, "", sf::Style::Titlebar | sf::Style::Close, windowSettings);
+            this->window = new sf::RenderWindow(window_bounds, "", sf::Style::Resize | sf::Style::Close, windowSettings);
         }
 
         this->window->setFramerateLimit(framerate_limit);
@@ -137,7 +138,7 @@ namespace Ngine {
         {
             this->states.top()->Update(this->dt);
             // Check if quitting app
-            if (this->states.top()->isQuitting())
+            if (this->states.top()->IsQuitting())
             {
                 this->states.top()->EndState();
                 delete this->states.top();
@@ -154,11 +155,19 @@ namespace Ngine {
 
     void Application::UpdateSFMLEvents()
     {
+        static bool lock_click = false;
         while (this->window->pollEvent(sfEvent))
         {
             if (sfEvent.type == sf::Event::Closed)
             {
                 this->window->close();
+            }
+
+            if (sfEvent.type == sf::Event::Resized)
+            {
+                // update the view to the new size of the window
+                sf::FloatRect visibleArea(0, 0, sfEvent.size.width, sfEvent.size.height);
+                this->window->setView(sf::View(visibleArea));
             }
         }
     }

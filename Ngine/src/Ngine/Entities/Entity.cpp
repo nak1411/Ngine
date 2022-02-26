@@ -8,12 +8,16 @@ namespace Ngine {
 	Entity::Entity()
 	{
 		this->InitVariables();
-		this->movementSpeed = 100.f;
+			
 	}
 
 	Entity::~Entity()
 	{
-		delete this->sprite;
+		for (auto& i : sprites) {
+			for (auto& j : i) {
+				delete j;
+			}
+		}
 	}
 
 #pragma endregion
@@ -22,39 +26,40 @@ namespace Ngine {
 
 	void Entity::InitVariables()
 	{
-		this->sprite = nullptr;
-		this->texture = nullptr;
+		this->movementSpeed = 200.f;
 	}
 
 #pragma endregion
 
 #pragma region FUNCTIONS
 
-	void Entity::CreateSprite(sf::Texture* texture)
-	{
-		this->texture = texture;
-		this->sprite->setTexture(*this->texture);
-	}
-
 	void Entity::Move(const float& dt, const float dirX, const float dirY)
 	{
-		if (this->sprite)
-		{
-			this->sprite->move(dirX * this->movementSpeed * dt, dirY * this->movementSpeed * dt);
+		for (auto& i : sprites) {
+			for (auto& j : i) {
+				j->move(dirX * this->movementSpeed * dt, dirY * this->movementSpeed * dt);
+			}
 		}
 	}
 
 	void Entity::Update(const float& dt)
 	{
-
+		for (auto i = 0; i < numOfSprites; ++i)
+		{
+			for (auto j = 0; j < numOfSprites; ++j)
+			{
+				
+			}
+		}
 	}	
 
 	void Entity::Render(sf::RenderTarget* target)
 	{
-		if (this->sprite)
-		{
-			target->draw(*this->sprite);
-		}
+		for (auto& i : sprites) {
+			for (auto& j : i) {
+				target->draw(*j);
+			}
+		}	
 	}
 
 #pragma endregion

@@ -1,6 +1,7 @@
 #pragma once
 
 #include <iostream>
+#include <ostream>
 #include <string>
 #include <map>
 #include <memory>
@@ -10,6 +11,7 @@
 #include <string>
 #include <fstream>
 #include <sstream>
+#include <time.h>
 #include <array>
 #include <vector>
 #include <stack>

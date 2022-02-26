@@ -1,6 +1,8 @@
 #pragma once
 #include "nepch.h"
+#include "Ngine/Map/Block.h"
 #include "State.h"
+#include "Ngine/Map/Map.h"
 
 namespace Ngine {
 	class GameState : public State
@@ -18,7 +20,7 @@ namespace Ngine {
 
 	private:
 
-		Entity player;
+		Map map;
 
 		/*FUNCTIONS*/
 		void InitKeybinds();

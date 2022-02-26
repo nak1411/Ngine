@@ -13,21 +13,21 @@ namespace Ngine {
 		this->InitBackground();
 		this->InitFonts();
 		this->InitKeybinds();
-		this->InitButtons();
+		this->InitGui();
 
-		this->buttons["GAME_STATE"] = new Button(100, 100, 150, 50,
+		this->buttons["GAME_STATE"] = new gui::Button(100, 100, 150, 50,
 			&this->font, "New Game",
 			sf::Color(70, 70, 70, 200),
 			sf::Color(150, 150, 150, 255),
 			sf::Color(20, 20, 20, 200));
 
-		this->buttons["SETTINGS"] = new Button(100, 160, 150, 50,
+		this->buttons["SETTINGS_STATE"] = new gui::Button(100, 160, 150, 50,
 			&this->font, "Settings",
 			sf::Color(70, 70, 70, 200),
 			sf::Color(150, 150, 150, 255),
 			sf::Color(20, 20, 20, 200));
 
-		this->buttons["EXIT_STATE"] = new Button(100, 220, 150, 50,
+		this->buttons["EXIT_STATE"] = new gui::Button(100, 220, 150, 50,
 			&this->font, "Quit",
 			sf::Color(70, 70, 70, 200),
 			sf::Color(150, 150, 150, 255),
@@ -41,7 +41,6 @@ namespace Ngine {
 		{
 			delete it->second;
 		}
-		
 	}
 
 #pragma endregion
@@ -57,7 +56,7 @@ namespace Ngine {
 	{
 		this->background.setSize(sf::Vector2f(this->window->getSize().x, this->window->getSize().y));
 
-		if (!this->backgroundTexture.loadFromFile("res/images/bg1.png"))
+		if (!this->backgroundTexture.loadFromFile("res/images/mainmenu_bg.png"))
 		{
 			NE_CORE_ERROR("MAINMENUSTATE::COULD NOT LOAD BACKGROUND IMAGE");
 			return;
@@ -92,7 +91,7 @@ namespace Ngine {
 		/**************************************/
 	}
 
-	void MainMenuState::InitButtons()
+	void MainMenuState::InitGui()
 	{
 
 	}
@@ -105,10 +104,10 @@ namespace Ngine {
 	{
 		this->UpdateMousePositions();
 		this->UpdateInput(dt);
-		this->UpdateButtons();
+		this->UpdateGui();
 	}
 
-	void MainMenuState::RenderButtons(sf::RenderTarget* target)
+	void MainMenuState::RenderGui(sf::RenderTarget* target)
 	{
 		// Iterate through button map and execute each buttons render
 		for (auto& it : this->buttons)
@@ -126,7 +125,7 @@ namespace Ngine {
 
 		target->draw(this->background);
 
-		this->RenderButtons(target);
+		this->RenderGui(target);
 
 		sf::Text mouseText;
 		mouseText.setPosition(this->mousePosView.x + 20, this->mousePosView.y);
@@ -145,7 +144,7 @@ namespace Ngine {
 
 	}
 
-	void MainMenuState::UpdateButtons()
+	void MainMenuState::UpdateGui()
 	{
 		// Iterate through button map and execute each buttons update
 		for(auto &it : this->buttons)
@@ -157,6 +156,12 @@ namespace Ngine {
 		if (this->buttons["GAME_STATE"]->IsPressed())
 		{
 			this->states->push(new GameState(this->window, this->supportedKeys, this->states));
+		}
+
+		// Settings
+		if (this->buttons["SETTINGS_STATE"]->IsPressed())
+		{
+			this->states->push(new SettingsState(this->window, this->supportedKeys, this->states));
 		}
 
 		// Quit game

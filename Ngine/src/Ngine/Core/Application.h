@@ -36,6 +36,7 @@ namespace Ngine {
 
 		bool fullscreen;
 		float dt;
+		bool isClicked;
 
 		// State is pointer due to being abstract therefore cannot be instantiated
 		std::stack<State*> states;
